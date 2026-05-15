@@ -1,12 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
-const {
-    validarRegistro,
-    validarLogin
-} = require('../middleware/validaciones');
 
-router.post('/registro', validarRegistro, authController.registro);
-router.post('/login', validarLogin, authController.login);
+// LOGIN
+router.post('/login', authController.login);
+
+// REGISTRO
+router.post('/registro', authController.registro);
+
+// TEST para verificar que carga
+router.get('/test', (req, res) => {
+    res.json({ ok: true, message: 'authRoutes funcionando' });
+});
 
 module.exports = router;

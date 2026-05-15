@@ -49,6 +49,11 @@ app.use(limiter);
 app.use('/api/auth', authRoutes);
 app.use('/api', footballRoutes);
 
+app.get('/test-api', (req, res) => {
+    res.json({ ok: true });
+});
+
+
 // Health check
 app.get('/', (req, res) => {
     res.json({
