@@ -53,6 +53,7 @@ const authController = {
             const { email, password } = req.body;
 
             const usuario = await Usuario.buscarPorEmail(email);
+            console.log("Usuario encontrado:", usuario);
 
             if (!usuario) {
                 console.warn(
@@ -100,15 +101,12 @@ const authController = {
                 token
             });
 
-        } catch (error) {
-            console.error(
-                `[ERROR LOGIN] ${error.message}`
-            );
-
-            res.status(500).json({
-                error: 'Error interno del servidor'
-            });
-        }
+        }catch (error) {
+    console.error(`[ERROR LOGIN]`, error); // <--- muestra todo el error
+    res.status(500).json({
+        error: error.message // <--- ahora devuelve el mensaje real
+    });
+}
     }
 };
 
