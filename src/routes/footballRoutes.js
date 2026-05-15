@@ -24,7 +24,6 @@ router.get('/clasificacion', async (req, res) => {
     }
 });
 
-
 // =========================
 // PARTIDOS
 // =========================
@@ -48,9 +47,8 @@ router.get('/partidos', async (req, res) => {
     }
 });
 
-
 // =========================
-// ESTADÍSTICAS (nueva)
+// ESTADÍSTICAS
 // =========================
 router.get('/estadisticas', async (req, res) => {
     try {
